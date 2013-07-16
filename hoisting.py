@@ -78,9 +78,9 @@ op = get_integer ("Choose 1,2,3 or 4: ", 1)
 if op==1:
 	sf =3.0
 elif op==2:
-	sf == 2.5
+	sf = 2.5
 else:
-	sf == 2.0
+	sf = 2.0
 
 print ("Wire line efficiency due to bending")
 print ("1 - D/d ratio = 25:1 - API 9A")
