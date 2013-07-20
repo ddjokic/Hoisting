@@ -1,0 +1,15 @@
+hoisting_sf.py Output:
+Hoisted weight in tones (1 ton = 2000 lb): 	40.0
+Capacity of existing wire rope in tones (1 ton = 2000lb): 	30.0
+Number of lines: 	2
+Number of rotating sheaves: 	2
+Sheave roller bearing friction factor: 	1.04
+Wire Line Efficiency due to bending: 	0.99
+Safety Factor: 	1.40042529586
+
+IADC Recommended Safety Factors:
+Drilling and other routine operations = 3
+Mast Rising = 2.5
+Setting Casing = 2
+Jarring = 2
+Validate results! No any warranties are associated with this code!
