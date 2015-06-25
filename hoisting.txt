@@ -1,10 +1,13 @@
 hoisting.py Output:
 Safety factor: 	3.0
 Wire line efficiency due to bending: 	0.95
-Hoisted weight in tones (1 ton = 2000 lb): 	70.0
-Number of lines (parts): 	4
-Number of rotating sheaves: 	4
-Sheave roller bearing friction factor: 	1.04
-Minimum required wire capacity [tones]: 	60.8977995017
-Minimum required wire capacity [lb]: 	121795.599003
+Hoisted weight in tones (1 ton = 2000 lb): 	10.0
+Number of lines (parts): 	1
+Number of rotating sheaves: 	1
+Sheave roller bearing friction factor: 	1.045
+Mechanical efficiency of the system: 	0.956937799043
+Mechanical advantage: 	0.956937799043
+Line Pull [tones]: 	10.45
+Minimum required wire capacity [tones]: 	33.0
+Minimum required wire capacity [lb]: 	66000.0
 There is no any kind of guaranties associated to results of this script! Validate results!

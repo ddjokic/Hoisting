@@ -66,7 +66,8 @@ def write_file (file, description, var):
 W = get_float ("Hoisted Weight in tones (1 ton = 2000lb) = ", 40)
 n = get_integer ("Number of lines or '0' for default of 4 = ", 4)
 s = get_integer ("Number of rotating sheaves or '0' for equal to number of lines = ", n)
-K = get_float ("Sheave roller bearing friction factor - enter '0' for default of 1.04 = ", 1.04)
+print ("Sheave bearing factor: 1.045 for Bronze Bushing; 1.02 for Roller Bearing" )
+K = get_float ("Sheave bearing factor - enter '0' for default of 1.045 = ", 1.045)
 
 print ("Type of operation - safety factors: ")
 print ("1 - Drilling and other routine operations")
@@ -95,8 +96,11 @@ elif dratio == 2:
 else:
 	wire_eff = get_float ("Input wire line efficiency due to bending <1: ", 0.95)
 
-Lton = (W*K**s)*(K-1)/(K**n-1)
-L1ton = Lton*sf/wire_eff
+
+mechEfficiency = (K**n-1)/((K**s)*(K-1))
+mechAdv = n*mechEfficiency
+linePull = W/mechAdv
+L1ton = linePull*sf/wire_eff
 L1lb = L1ton*2000
 
 fname = 'hoisting.txt'
@@ -108,6 +112,9 @@ write_file (fn, "Hoisted weight in tones (1 ton = 2000 lb): ", W)
 write_file (fn, "Number of lines (parts): ", n)
 write_file (fn, "Number of rotating sheaves: ", n)
 write_file (fn, "Sheave roller bearing friction factor: ", K)
+write_file (fn, "Mechanical efficiency of the system: ", mechEfficiency)
+write_file (fn, "Mechanical advantage: ", mechAdv)
+write_file(fn, "Line Pull [tones]: ", linePull)
 write_file (fn, "Minimum required wire capacity [tones]: ", L1ton)
 write_file (fn, "Minimum required wire capacity [lb]: ", L1lb)
 fn.write ("\n")
@@ -115,5 +122,5 @@ fn.write ("There is no any kind of guaranties associated to results of this scri
 fn.close ()
 print ("Minimum required wire capacity [ton] = %f" %(L1ton))
 print ("Minimum required wire capacity [lb] = %f" %(L1lb))
-print ("Check file 'IADC_hoisting.txt' in working folder!")
+print ("Check file 'hoisting.txt' in working folder!")
 print ("Job done!")

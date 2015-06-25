@@ -58,7 +58,8 @@ W = get_float ("Hoisted Weight in tones (1 ton = 2000lb) = ", 40)
 L = get_float ("Capacity of existing wire rope in tones (1 ton = 2000lb): ", 90)
 n = get_integer ("Number of lines or '0' for default of 4 = ", 4)
 s = get_integer ("Number of rotating sheaves or '0' for equal to number of lines = ", n)
-K = get_float ("Sheave roller bearing friction factor - enter '0' for default of 1.04 = ", 1.04)
+print ("Sheave bearing factor: 1.045 for Bronze Bushing; 1.02 for Roller Bearing" )
+K = get_float ("Sheave roller bearing friction factor - enter '0' for default of 1.045 = ", 1.045)
 
 print ("Wire line efficiency due to bending")
 print ("1 - D/d ratio = 25:1 - API 9A")
@@ -73,7 +74,13 @@ elif dratio == 2:
 else:
 	wire_eff = get_float ("Input wire line efficiency due to bending <1: ", 0.95)
 
-sfact=L*wire_eff*(K**n-1)/((W*K**s)*(K-1))
+#sfact=L*wire_eff*(K**n-1)/((W*K**s)*(K-1))
+
+mechEfficiency = (K**n-1)/((K**s)*(K-1))
+mechAdv = n*mechEfficiency
+linePull = W/mechAdv
+linePull_bend = linePull/wire_eff
+sfact = L/linePull_bend
 
 
 fname = 'hoisting_sf.txt'
@@ -97,3 +104,4 @@ fn.write ("\nSetting Casing = 2")
 fn.write ("\nJarring = 2")
 fn.write ("\nValidate results! No any warranties are associated with this code!")
 fn.close()
+print ("Check file 'hoisting_sf.txt' in working folder!")
